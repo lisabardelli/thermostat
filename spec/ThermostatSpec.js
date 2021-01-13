@@ -4,21 +4,27 @@ describe("Thermostat", function() {
   // var airport;
   // var plane;
   // var weather;
+  var thermostat;
 
-  // beforeEach(function(){
+  beforeEach(function(){
     // plane = jasmine.createSpy('plane');
     // weather = jasmine.createSpyObj('weather', ['generate'])
-  //   thermostat = new Thermostat();
-  // })
+    thermostat = new Thermostat();
+  })
 
   describe("constructor", function () {
     // beforeEach(function(){
     //   weather.generate.and.returnValue(2);
     //   });
       it("temp default of 20 degrees", function () {
-        var thermostat = new Thermostat();
+        
         expect(thermostat.temp).toEqual(20);
       })
     })
-
+    describe('up', function(){
+      it("increases the temperature", function(){
+        thermostat.up(3)
+        expect(thermostat.temp).toEqual(23)
+      })
+    })
 })
