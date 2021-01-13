@@ -5,6 +5,10 @@ class Thermostat {
     }
 
     up(number) {
-        return (this.temp += number)
+      return (this.temp += number)
+    }
+
+    down(number) {
+      return (this.temp -= number)
     }
 }

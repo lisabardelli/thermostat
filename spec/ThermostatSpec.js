@@ -13,18 +13,25 @@ describe("Thermostat", function() {
   })
 
   describe("constructor", function () {
+
     // beforeEach(function(){
     //   weather.generate.and.returnValue(2);
     //   });
-      it("temp default of 20 degrees", function () {
-        
-        expect(thermostat.temp).toEqual(20);
+    it("temp default of 20 degrees", function () {
+      expect(thermostat.temp).toEqual(20);
       })
     })
-    describe('up', function(){
-      it("increases the temperature", function(){
-        thermostat.up(3)
-        expect(thermostat.temp).toEqual(23)
-      })
+  describe('up', function(){
+    it("increases the temperature", function(){
+      thermostat.up(3)
+      expect(thermostat.temp).toEqual(23)
     })
+  })
+
+  describe('down', function(){
+    it("decreases the temperature", function(){
+      thermostat.down(2)
+      expect(thermostat.temp).toEqual(18)
+    })
+  })
 })
