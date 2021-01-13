@@ -9,6 +9,11 @@ class Thermostat {
     }
 
     down(number) {
+        if(this.temp == 10 ) {
+      throw new Error ("The temperatura cannot be lower than 10 degrees")
+      } else {
+
       return (this.temp -= number)
+      }
     }
 }

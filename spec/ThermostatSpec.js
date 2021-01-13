@@ -30,8 +30,19 @@ describe("Thermostat", function() {
 
   describe('down', function(){
     it("decreases the temperature", function(){
+      thermostat = new Thermostat();
+      thermostat.temp = 20
       thermostat.down(2)
       expect(thermostat.temp).toEqual(18)
     })
+
+    it("does not allow to have temperaure lower than 10", function(){
+      thermostat.temp = 10
+        expect(function() {
+          thermostat.down(1);
+        }).toThrowError("The temperatura cannot be lower than 10 degrees");
+    })
   })
+
+
 })
