@@ -2,7 +2,6 @@
 class Thermostat {
     constructor() {
         this.temp = 20
-        this.min_temp = 10
     }
 
     up(number) {
@@ -10,10 +9,10 @@ class Thermostat {
     }
 
     down(number) {
-      if(this.min_temp > 10) {
-      } else {
+      if((this.temp - number) < 10) {
         throw new Error ("The temperatura cannot be lower than 10 degrees")
+      } else {
+        return (this.temp -= number)
       }
-      return this.temp
     }
 }
