@@ -6,13 +6,13 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <title>Thermostat App</title>
   <style>
-.Low {
+#Low {
   color: green;
 }
-.Medium {
+#Medium {
   color: black;
 }
-.High {
+#High {
   color: red;
 }
   </style>
@@ -20,19 +20,15 @@
 </head>
 <body>
   <div class="container">
-    <div id="temp-display">
-    
-    </div>
-    <div class="energy-display">
-    </div> 
+    <div class="temp-display"></div>
     <div class="controls">
-      <button class="turn-up">Turn Up</button> 
+      <button class="turn-up">Turn Up</button>
       <button class="turn-down">Turn Down</button>
       <button class="reset">Reset</button>
       <button class="power-save-toggle">Power Saving Mode</button>
       Power Mode: <span id = 'power_mode'> </span>
     </div>
-  </div>  
+  </div>
 </body>
 <script> $(document).ready( function() {
   var thermostat = new Thermostat();
@@ -59,10 +55,11 @@ $('.power-save-toggle').click(function(){
 })
 
 function updateTemperature() {
-  $("#temp-display").text(thermostat.current_temp);
+  $(".temp-display").text(thermostat.current_temp);
   $("#power_mode").text(thermostat.power_save);
-  $("#temp-display").attr('class', thermostat.energy_consumption);
-  
+  thermostat.energy_usage();
+  $(".temp-display").attr('id', thermostat.energy_consumption);
+
 }
 
 })
